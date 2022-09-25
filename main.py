@@ -9,9 +9,7 @@ def pdf_to_mp3(file_path='Check.pdf', language='en'):
         #return 'File exist'
 
         with pdfplumber.PDF(open(file=file_path, mode='rb')) as pdf:
-            pages = []
-            for page in pdf.pages:
-                pages.append(page.extract_text())
+            pages = [page.extract_text() for page in pdf.pages]
             
         text = ''.join(pages)
 
